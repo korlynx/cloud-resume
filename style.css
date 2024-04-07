@@ -130,6 +130,9 @@ a {
     display: flex;
     gap: 2rem;
 }
+.profile_description{
+    flex: 1;
+}
 
 /* 250px */
 .profile_profileImg {
