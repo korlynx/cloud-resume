@@ -274,9 +274,10 @@
         }
 
         // a function that takes in session item type
+        // 'https://m1brfg19p3.execute-api.eu-central-1.amazonaws.com/count/counter?'
         function updateCounter(type) {
 
-            fetch('https://m1brfg19p3.execute-api.eu-central-1.amazonaws.com/count/counter?' + type) // Dynamic request with URL parameter
+            fetch('https://vqd06guxe5.execute-api.eu-central-1.amazonaws.com/view/count?' + type) // Dynamic request with URL parameter
                 .then(res => res.json())
                 .then(data => {
                     pageviewsCount.textContent = data.pageviews; // Display pageviews to user

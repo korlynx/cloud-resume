@@ -5,9 +5,7 @@ import os
 from moto import mock_aws
 import json
 
-
-sys.path.append('lambda_function.py')
-from lambda_code.lambda_function import dyn_get_item,dyn_update_item, get_update_table_item, JSONEncoder, LambdaDynamoDBClass
+from view_counter.counter_function import dyn_get_item,dyn_update_item, get_update_table_item, JSONEncoder, LambdaDynamoDBClass
 
 # use moto for aws resource mock
 @mock_aws
@@ -65,6 +63,7 @@ class TestViewCount(TestCase):
         # check successfully handler response sent to request origin
         session_type = 'visit-pageview'
         res = get_update_table_item(self.mocked_dynamodb_class, session_type)
+        print(res)
         self.assertEqual(res['statusCode'], 200)
         self.assertEqual(res['body'], json.dumps({'pageviews': 1, 'visits': 1}))
         

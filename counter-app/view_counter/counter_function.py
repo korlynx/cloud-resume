@@ -75,15 +75,14 @@ def get_update_table_item(dynamo_db_class, session_type):
     body = json.dumps({'pageviews': 0, 'visits': 0})
     try:
         data_item = dyn_get_item(dynamo_db_class)
-        old_item = data_item['Counts']
-        new_pageview = old_item['pageviews'] + 1
+        data_item['Counts']['pageviews'] += 1
+        
         if session_type == 'visit-pageview':
-            new_visit = old_item['visits'] + 1
-        else:
-            new_visit = old_item['visits']
+            data_item['Counts']['visits'] += 1
             
         # update data base with the new counts
-        dyn_update_item(dynamo_db_class, new_visit, new_pageview)
+        dyn_update_item(dynamo_db_class, data_item['Counts']['visits'], 
+                        data_item['Counts']['pageviews'])
         new_item = dyn_get_item(dynamo_db_class)
         
         res = new_item['Counts']
@@ -102,7 +101,7 @@ def get_update_table_item(dynamo_db_class, session_type):
             'body': body
         }
         
-# conver Decimal to string
+# convert Decimal to string
 class JSONEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, Decimal):

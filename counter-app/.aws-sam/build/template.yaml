@@ -1,0 +1,77 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'counter-app
+
+  counter-app SAM template
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+    MemorySize: 128
+    Tracing: Active
+    LoggingConfig:
+      LogFormat: JSON
+  Api:
+    TracingEnabled: true
+Resources:
+  CounterApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: view
+      Cors:
+        AllowMethods: '''GET'''
+        AllowHeaders: '''X-Forwarded-For'''
+        AllowOrigin: '''https://resume.collinsunaichi.co.uk/'''
+        MaxAge: '''600'''
+        AllowCredentials: true
+  CounterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: CounterFunction
+      Handler: counter_function.lambda_handler
+      Runtime: python3.11
+      Architectures:
+      - x86_64
+      Policies:
+      - AWSLambdaBasicExecutionRole
+      - Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action:
+          - dynamodb:PutItem
+          - dynamodb:UpdateItem
+          - dynamodb:GetItem
+          Resource:
+            Fn::Sub: arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/CounterTable
+      Environment:
+        Variables:
+          DYNAMODB_TABLE_NAME: CounterTable
+          ORIGIN_URL: https://resume.collinsunaichi.co.uk/
+      Events:
+        CounterApp:
+          Type: Api
+          Properties:
+            Path: /count
+            Method: get
+            RestApiId:
+              Ref: CounterApi
+    Metadata:
+      SamResourceId: CounterFunction
+Outputs:
+  ViewCounterApi:
+    Description: API Gateway endpoint URL for Prod stage for view counter function
+    Value:
+      Fn::Sub: https://${CounterApi}.execute-api.${AWS::Region}.amazonaws.com/view/count
+  ViewCounterFunction:
+    Description: view counter Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - CounterFunction
+      - Arn
+  CounterFunctionIamRole:
+    Description: Implicit IAM Role created for view counter function
+    Value:
+      Fn::GetAtt:
+      - CounterFunctionRole
+      - Arn

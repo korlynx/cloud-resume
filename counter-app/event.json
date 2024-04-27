@@ -1,0 +1,6 @@
+{
+    "queryStringParameters": {
+        "type": "visit",
+        "type2": "visit-pageview"
+    }
+}
