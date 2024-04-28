@@ -6,7 +6,7 @@ from decimal import Decimal
 import logging
 
 
-# required resources
+# Required resources
 _LAMBDA_DYNAMODB_RESOURCE = {
     "resource": resource('dynamodb'),
     "table_name": environ.get("DYNAMODB_TABLE_NAME", "NONE"),
