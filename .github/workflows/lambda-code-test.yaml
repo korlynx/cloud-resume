@@ -19,4 +19,4 @@ jobs:
           pip install -r requirements.txt
       - name: Test with pytest
         run: |
-          pytest counter-app/test/test_counter_function.py --doctest-modules --cov-report=html
+          pytest -v ../counter-app/test/test_counter_function.py
