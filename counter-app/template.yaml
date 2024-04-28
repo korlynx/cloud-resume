@@ -23,12 +23,12 @@ Resources:
     Properties:
       Name: CounterApi
       StageName: view
-      Cors:
-        AllowMethods: "'GET'"
-        AllowHeaders: "'X-Forwarded-For'"
-        AllowOrigin: "'https://resume.collinsunaichi.co.uk/'"
-        MaxAge: "'600'"
-        AllowCredentials: true
+      # Cors:
+      #   AllowMethods: "'GET'"
+      #   AllowHeaders: "'X-Forwarded-For'"
+      #   AllowOrigin: "'https://resume.collinsunaichi.co.uk/'"
+      #   MaxAge: "'600'"
+      #   AllowCredentials: true
   CounterFunction:
     Type: AWS::Serverless::Function #
     Properties:
