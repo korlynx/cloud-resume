@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collins-Unaichi</title>
     <!-- <script src="https://unpkg.com/feather-icons"></script> -->
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="style.css">
     <!-- Disable Favicon.ico-->
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
@@ -20,7 +20,7 @@
         <div class="profile">
             <div class="profile_container">
                 <div class="profile_profileImg">
-                    <img src="image/collins.jpg" alt="chinonso unaichi">
+                    <img src="../image/collins.jpg" alt="chinonso unaichi">
                 </div>
                 <div class="profile_description">
                     <h1 class="profile_name">
@@ -277,7 +277,7 @@
         // 'https://m1brfg19p3.execute-api.eu-central-1.amazonaws.com/count/counter?'
         function updateCounter(type) {
 
-            fetch('http://api.collinsunaichi.co.uk/?' + type) // Dynamic request with URL parameter
+            fetch('https://api.collinsunaichi.co.uk/?' + type) // Dynamic request with URL parameter
                 .then(res => res.json())
                 .then(data => {
                     pageviewsCount.textContent = data.pageviews; // Display pageviews to user
