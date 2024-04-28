@@ -23,10 +23,13 @@ jobs:
 
       - name: upload to s3 bucket
         working-directory: ./app_template
-        run: aws s3 sync index.html s3://resume.collinsunaichi.co.uk
-        run: aws s3 sync style.css s3://resume.collinsunaichi.co.uk
+        run: |
+          aws s3 sync index.html s3://resume.collinsunaichi.co.uk
+          aws s3 sync style.css s3://resume.collinsunaichi.co.uk
 
       - name: update image in s3
-        run: aws s3 sync ./image s3://resume.collinsunaichi.co.uk
+        run: |
+          aws s3 sync ./image s3://resume.collinsunaichi.co.uk
       - name: Invalidate cloudfront
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
