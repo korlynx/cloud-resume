@@ -46,7 +46,7 @@ def dyn_get_item(dynamo_db_class):
             dynamo_db_table_name, err.response["Error"]["Code"], err.response["Error"]["Message"])
         return {"statusCode": err.response["Error"]["Code"], "body": err.response["Error"]["Message"]}
         
-
+# Update table 
 def dyn_update_item(dynamo_db_class, value_1, value_2):
     # update item in dynamodb table
     try:
