@@ -19,4 +19,6 @@ jobs:
           pip install -r requirements.txt
       - name: Test with pytest
         run: |
-          pytest -v ../counter-app/test/test_counter_function.py
+          pytest -v /home/runner/work/cloud-resume/cloud-resume/counter-app/test/test_counter_function.py
+
+
