@@ -29,7 +29,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Test with pytest
+        working-directory: ./counter-app
         run: |
-          pytest -v /home/runner/work/cloud-resume/cloud-resume/counter-app/test/test_counter_function.py
+          pytest -v /test/test_counter_function.py
 
 

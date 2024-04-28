@@ -63,9 +63,3 @@ Outputs:
   ViewCounterApi:
     Description: API Gateway endpoint URL for Prod stage for view counter function
     Value: !Sub "https://${CounterApi}.execute-api.${AWS::Region}.amazonaws.com/view/count"
-  ViewCounterFunction:
-    Description: view counter Lambda Function ARN
-    Value: !GetAtt CounterFunction.Arn
-  CounterFunctionIamRole:
-    Description: Implicit IAM Role created for view counter function
-    Value: !GetAtt CounterFunctionRole.Arn
