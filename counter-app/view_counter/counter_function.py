@@ -6,6 +6,7 @@ from decimal import Decimal
 import logging
 
 
+# required resources
 _LAMBDA_DYNAMODB_RESOURCE = {
     "resource": resource('dynamodb'),
     "table_name": environ.get("DYNAMODB_TABLE_NAME", "NONE"),
@@ -15,7 +16,7 @@ _LAMBDA_DYNAMODB_RESOURCE = {
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-
+# lambda handler function
 def lambda_handler(event, context):
     global _LAMBDA_DYNAMODB_RESOURCE
     dynamodb_resource_class = LambdaDynamoDBClass(_LAMBDA_DYNAMODB_RESOURCE)
