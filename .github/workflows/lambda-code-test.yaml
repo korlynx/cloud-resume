@@ -29,8 +29,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Test with pytest
-        working-directory: ./counter-app
+        working-directory: ./counter-app/test
         run: |
-          pytest -v /test/test_counter_function.py
+          pytest -v test_counter_function.py
 
 
