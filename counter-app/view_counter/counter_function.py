@@ -66,6 +66,7 @@ def dyn_update_item(dynamo_db_class, value_1, value_2):
             dynamo_db_table_name, err.response["Error"]["Code"], err.response["Error"]["Message"])
         return {"statusCode": err.response["Error"]["Code"], "body": err.response["Error"]["Message"]}
 
+# update table and get current view counts
 def get_update_table_item(dynamo_db_class, session_type):
     status_code = 200
     header =  {
