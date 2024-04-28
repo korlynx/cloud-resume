@@ -22,10 +22,9 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: upload to s3 bucket
-        working-directory: ./app_template
         run: |
-          aws s3 sync index.html s3://resume.collinsunaichi.co.uk
-          aws s3 sync style.css s3://resume.collinsunaichi.co.uk
+          aws s3 cp ./app_template/index.html s3://resume.collinsunaichi.co.uk
+          aws s3 cp ./app_template/style.css s3://resume.collinsunaichi.co.uk
 
       - name: update image in s3
         run: |
