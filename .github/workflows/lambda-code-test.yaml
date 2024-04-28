@@ -1,14 +1,14 @@
-name: Lambda python
+name: Lambda-python-pytest
 
 on:
   push:
-    branches:
-    - main
+    paths:
+    - 'counter-app/**'
 env:
   AWS_REGION: eu-central-1
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
