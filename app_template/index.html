@@ -124,8 +124,16 @@
             <div class="ref">
                 <h3 class="title">PROJECTS</h3>
                 <div class="ref_item">
-                    <h4 class="ref_name">Hosting Serverless Application<ion-icon name="logo-github"></ion-icon></h4>
-                    <p class="description">I deployed a resume on s3, created an API gateway using SAM. Full documentation coming soon!</p>
+                    <h4 class="ref_name"> <a class="project-link" href="https://github.com/korlynx/cloud-resume" 
+                            target="_b" rel="noopener"> Hosting static website on S3 <ion-icon name="logo-github"></ion-icon></a></h4>
+                    <p class="description">In this project, i deployed a serverless application on AWS. I hosted my HTML resume website on Amazon S3 bucket, the webpage displays a
+                    dynamic visitor counter, using a REST API and a Lambda function backed by DynamoDB. The S3 bucket endpoint, and
+                    REST API endpoint are served using Amazon CloudFront. The project CI/CD pipeline is automated using Github Action. 
+                    </p>
+                    <p class="description">
+                        AWS resources and tools used: Amazon S3 Bucket, IAM, DynamoDB, AWS Lambda, AWS API Gateway, CloudFront, AWS Route53, AWS Severless
+                        Application Management(SAM), and Github Action.
+                    </p>
                 </div>
                 <div class="ref_item">
                     <h4 class="ref_name"> <a class="project-link" href="https://github.com/korlynx/ec2-autoscaling-with-boto3"
@@ -133,12 +141,12 @@
             
                     <p class="description"> A Boto3 template that automates the end to end deployement of a web application
                         on Amazon EC2 instance. The boto3 template creates a load
-                        balancer targeting an autoscaling group of EC2 instances in different availability zones.
+                        balancer targeting an autoscaling group of EC2 instances in different availability zones. The EC2 instances serving the web application communicate with Amazon S3 Bucket and
+                        DynamoDB.
             
                     </p>
-                    <p class="description"> The EC2 instances serving the web application communicate with Amazon S3 Bucket and
-                        DynamoDB.
-                    </p>
+                    <!-- <p class="description"> 
+                    </p> -->
                 </div>
             </div>
             <div class="exp">
