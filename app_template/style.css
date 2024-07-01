@@ -9,7 +9,7 @@
 :root {
     --primary-color: #ff7613; 
     --text-color: #3d3c3c;
-    --hover-color: #655151;
+    --hover-color: rgb(23, 2, 61);
 }
 
 html {
@@ -194,7 +194,7 @@ a {
     
 }
 .project-link{
-    color: black;
+    color: rgb(23, 2, 61);
     font-style: italic;
 }
 
@@ -305,5 +305,5 @@ hr {
 }
 
 .certification-link{
-    color: black;
+    color: rgb(23, 2, 61);
 }

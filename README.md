@@ -1,16 +1,17 @@
-# Build and deploy a static website with dynamic visitor counter Using Amazon S3, DynamoDB, AWS Lambda, API Gateway, CloudFront, and SAM 
+# Build and deploy a Serverless Resume Website
 
-The aim of this project is to deploy a serverless application (A Cloud Resume) using Amazon S3 bucket, the webpage displays a dynamic visitor counter, using a REST API and a Lambda function backed by DynamoDB. The S3 bucket endpoint, and REST API endpoint are served using Amazon CloudFront.
+Deployement of high-performance, serverless application on AWS, resulting in a dynamic HTML resume website with real-time visitor tracking. The webpage displays a dynamic visitor counter, using a REST API and a Lambda function communicating with a DynamoDB database. The S3 bucket endpoint, and REST API endpoint are served using Amazon CloudFront.
 
 ## AWS Services and Architecture used
 ![](architecture.png)
-- Amazon S3: For hosting the static contents of the application (HTML, CSS, and image files).
-- AWS Indentiy and Access Management (IAM): For AWS resource identity and access management.
-- DynamoDB: A NoSQl data base that provides persistent layer where the dynamic page visitors counts are stored.
-- AWS Lambda: Runs a Python code that gets and updates visitors counts in the DynamoDB table.
-- AWS API Gateway: Used to create a Lambda proxy integrated Rest API endpoint, that uses GET method to fetch data from the Dynamodb table.
+
+- Amazon S3: For hosting the static content of the application (HTML, CSS, and image files).
+- AWS Identity and Access Management (IAM): For AWS resource identity and access management.
+- DynamoDB: A NoSQL database that provides a persistent layer where the dynamic page visitor counts are stored.
+- AWS Lambda: Runs Python code that retrieves and updates visitor counts in the DynamoDB table.
+- AWS API Gateway: Used to create a Lambda proxy integrated REST API endpoint that uses the GET method to fetch data from the DynamoDB table.
 - AWS Route53: For DNS routing
-- AWS Severless Application Management(SAM): An open source infrastructure as a code platform, it is used to build, test and deploy API Gateway and Lambda Function resource.
+- AWS Serverless Application Model (SAM): An open-source infrastructure-as-code platform used to build, test, and deploy API Gateway and Lambda Function resources.
 
 ## Some usefull links
 
